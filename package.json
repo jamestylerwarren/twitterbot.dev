@@ -1,0 +1,22 @@
+{
+  "name": "twitterbot.dev",
+  "version": "1.0.0",
+  "description": "My new twitter bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamestylerwarren/twitterbot.dev.git"
+  },
+  "author": "tyler warren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamestylerwarren/twitterbot.dev/issues"
+  },
+  "homepage": "https://github.com/jamestylerwarren/twitterbot.dev#readme",
+  "dependencies": {
+    "twit": "^2.2.5"
+  }
+}
