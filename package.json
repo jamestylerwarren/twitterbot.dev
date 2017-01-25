@@ -20,6 +20,6 @@
     "twit": "^2.2.5"
   },
   "scripts": {    
-    "start": "node bot.js",  
-  },
+    "start": "node bot.js"  
+  }
 }
