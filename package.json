@@ -18,5 +18,8 @@
   "homepage": "https://github.com/jamestylerwarren/twitterbot.dev#readme",
   "dependencies": {
     "twit": "^2.2.5"
-  }
+  },
+  "scripts": {    
+    "start": "node bot.js",  
+  },
 }
