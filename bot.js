@@ -9,7 +9,7 @@ var retweet = function() {
   	var params = {
 	    q: '#sanantoniospurs, #SpursWin, #spurs, #GoSpursGo, #InPopWeTrust',
 	    result_type: 'recent',
-	    lang: 'en'    
+	    lang: 'en',    
   	} 
 
 	Twitter.get('search/tweets', params, function(err, data) {
@@ -49,9 +49,9 @@ setInterval(retweet, 3000000);
 // find a random tweet and 'favorite' it
 var favoriteTweet = function(){
   	var params = {
-      	q: '#sanantoniospurs, #SpursWin, #spurs, #GoSpursGo, #InPopWeTrust',  // REQUIRED
+      	q: '#sanantoniospurs, #SpursWin, #spurs, #GoSpursGo, #InPopWeTrust',  
       	result_type: 'recent',
-      	lang: 'en'
+      	lang: 'en',
   	}
 
   	// find the tweet
@@ -82,3 +82,9 @@ favoriteTweet();
 // favorite a tweet in every 60 minutes
 setInterval(favoriteTweet, 3600000);
 
+
+// function to generate a random tweet 
+function random(arr) {
+  var index = Math.floor(Math.random()*arr.length);
+  return arr[index];
+};
