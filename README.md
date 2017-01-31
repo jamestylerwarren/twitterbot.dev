@@ -1,11 +1,20 @@
-SPURS TWITTERBOT
+COACH POP TWITTERBOT
 ===================
 
 Retweet and favorite the following #tweets:
-- #sanantoniospurs 
-- #spurswin 
-- #spurs 
-- #gospursgo 
-- #inpopwetrust
+- #popquotes 
+- #greggpopovich  
+- #PopQuotes  
+- #GreggPopovich  
+- #inpopwetrust  
+- #InPopWeTrust  
+- #WisdomOfCoachPop  #PopForPrez 
+- #PresidentPop 
+- #CoachPoppa  
+- #ILikeItWhenYouCallMeCoachPoppa 
+- #CoachPoppa 
+- #PopForPresident 
+- #PopBeingPop 
+- #Pop2020'
 
 
