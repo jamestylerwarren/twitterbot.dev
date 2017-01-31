@@ -7,7 +7,7 @@ var Twitter = new twit(config);
 
 var retweet = function() {
   	var params = {
-	    q: '#sanantoniospurs OR #SpursWin OR #spurs OR #GoSpursGo OR #InPopWeTrust',
+	    q: '#sanantoniospurs OR #SpursWin OR #GoSpursGo OR #InPopWeTrust',
 	    result_type: 'recent',
 	    lang: 'en',    
   	} 
@@ -49,7 +49,7 @@ setInterval(retweet, 3000000);
 // find a random tweet and 'favorite' it
 var favoriteTweet = function(){
   	var params = {
-      	q: '#sanantoniospurs OR #SpursWin OR #spurs OR #GoSpursGo OR #InPopWeTrust',  
+      	q: '#sanantoniospurs OR #SpursWin OR #GoSpursGo OR #InPopWeTrust',  
       	result_type: 'recent',
       	lang: 'en',
   	}
