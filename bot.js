@@ -38,8 +38,8 @@ var retweet = function() {
 }
 // grab & retweet as soon as program is running...
 retweet();
-// retweet in every 30 minutes
-setInterval(retweet, 1800000);
+// retweet in every 15 minutes
+setInterval(retweet, 900000);
 
 //===================================================
 
