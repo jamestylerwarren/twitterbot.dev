@@ -7,10 +7,10 @@ var Twitter = new twit(config);
 
 var retweet = function() {
 	var params = {
-    q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #GoSpursGo',
-    result_type: 'mixed',
-    lang: 'en',    
-	} 
+      q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop', 
+      result_type: 'recent',
+      lang: 'en',
+  }
 
   Twitter.get('search/tweets', params, function(err, data) {
   	// if there no errors
@@ -49,7 +49,7 @@ setInterval(retweet, 1800000);
 // find a random tweet and 'favorite' it
 var favoriteTweet = function(){
 	var params = {
-    	q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #GoSpursGo', 
+    	q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop', 
     	result_type: 'recent',
     	lang: 'en',
 	}
