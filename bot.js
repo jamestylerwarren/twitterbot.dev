@@ -38,8 +38,8 @@ var retweet = function() {
 }
 // grab & retweet as soon as program is running...
 retweet();
-// retweet in every 30 minutes
-setInterval(retweet, 1800000);
+// retweet in every 60 min
+setInterval(retweet, 3600000);
 
 //===================================================
 
@@ -79,8 +79,8 @@ var favoriteTweet = function(){
 
 // grab & favorite as soon as program is running...
 favoriteTweet();
-// favorite a tweet in every 40 minutes
-setInterval(favoriteTweet, 2400000);
+// favorite a tweet in every 60 minutes
+setInterval(favoriteTweet, 3600000);
 
 
 // function to generate a random tweet 
