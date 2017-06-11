@@ -1,7 +1,7 @@
 COACH POP TWITTERBOT
 ===================
 
-Retweet and favorite the following #tweets:
+Retweet, favorite and follow via the following #tweets:
 - #popquotes 
 - #greggpopovich  
 - #PopQuotes  
@@ -17,5 +17,3 @@ Retweet and favorite the following #tweets:
 - #PopBeingPop 
 - #Pop2020'
 - #PopovichKerr2020
-
-

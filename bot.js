@@ -1,6 +1,6 @@
 //Dependencies
 var twit = require('twit');
-//var config = require('./config.js');
+var config = require('./config.js');
 var Twitter = new twit();
 
 //Retweet Bot ----------------------------------
@@ -10,7 +10,7 @@ var retweet = function() {
       q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #PopForever OR #PopForEver OR #Popovichkerr2020 OR #PopovichKerr2020', 
       result_type: 'recent',
       lang: 'en',
-  }
+    }
 
   Twitter.get('search/tweets', params, function(err, data) {
   	// if there no errors
@@ -80,6 +80,42 @@ var favoriteTweet = function(){
 favoriteTweet();
 // favorite a tweet in every 60 minutes
 setInterval(favoriteTweet, 3600000);
+
+
+var follow_tweeter = function() {
+    var params = {
+        q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #PopForever OR #PopForEver OR #Popovichkerr2020 OR #PopovichKerr2020', 
+        result_type: 'recent',
+        lang: 'en',
+    }
+
+    // Initiate your search using the above paramaters
+    Twitter.get('search/tweets', params, function(err, data, response) {
+        // If there is no error, proceed
+        if(!err){
+            // Loop through the returned tweets
+            for(let i = 0; i < data.statuses.length; i++){
+                // Get the screen_name from the returned data
+                let screen_name = data.statuses[i].user.screen_name;
+                  // THE FOLLOWING MAGIC GOES HERE
+                Twitter.post('friendships/create', {screen_name}, function(err, response){
+                    if(err){
+                      console.log(err);
+                    } else {
+                      console.log(screen_name, ': **FOLLOWED**');
+                    }
+                });
+            }
+        } else {
+            console.log(err);
+        }
+    })
+}
+
+// grab & favorite as soon as program is running...
+follow_tweeter();
+// favorite a tweet in every 60 minutes
+setInterval(follow_tweeter, 3600000);
 
 
 // function to generate a random tweet 
