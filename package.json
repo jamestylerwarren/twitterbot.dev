@@ -1,7 +1,7 @@
 {
   "name": "twitterbot.dev",
   "version": "1.0.0",
-  "description": "My new twitter bot",
+  "description": "My Coach Pop twitterbot",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
