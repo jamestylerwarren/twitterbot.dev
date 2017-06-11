@@ -58,10 +58,9 @@ var favoriteTweet = function(){
     	        // if there was an error while 'favorite'
     	        if(err){
     	          console.log('CANNOT BE FAVORITE... Error');
-    	        }
-    	        else {
+    	        } else {
     	          console.log('FAVORITED... Success!!!');
-            	}
+            	};
         	});
         };
 	});
@@ -73,9 +72,7 @@ favoriteTweet();
 setInterval(favoriteTweet, 3600000);
 
 
-
 //Follow bot --------------------------------------------
-//follow a random tweeter
 var follow_tweeter = function(){
     // find a tweet
     Twitter.get('search/tweets', params, function(err, data){
@@ -89,17 +86,16 @@ var follow_tweeter = function(){
                 // if there was an error while 'follow' the user and print screen name
                 if(err){
                   console.log('CANNOT FOLLOW... Error');
-                }
-                else {
+                }; 
+                if (response) {
                   console.log(screen_name, ': **FOLLOWED**');
-                }
+                };
             });
         } else {
             console.log('Something went wrong while SEARCHING...');
         };
     });
 };
-
 // grab & favorite as soon as program is running...
 follow_tweeter();
 // favorite a tweet in every 60 minutes
