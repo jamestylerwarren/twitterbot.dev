@@ -16,5 +16,6 @@ Retweet and favorite the following #tweets:
 - #PopForPresident 
 - #PopBeingPop 
 - #Pop2020'
+- #PopovichKerr2020
 
 
