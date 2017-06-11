@@ -62,7 +62,7 @@ var favoriteTweet = function(){
         // if random tweet exists
         if(typeof randomTweet != 'undefined'){
           	// Tell TWITTER to 'favorite'
-          	Twitter.post('favorites/create', {id: randomTweet.id_str}, function(err, response) {
+          	Twitter.post('favorites/create', {id: randomTweet.id_str}, function(err, response){
     	        // if there was an error while 'favorite'
     	        if(err){
     	          console.log('CANNOT BE FAVORITE... Error');
@@ -86,30 +86,56 @@ var follow_tweeter = function() {
         q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #PopForever OR #PopForEver OR #Popovichkerr2020 OR #PopovichKerr2020', 
         result_type: 'recent',
         lang: 'en',
-    }
+    };
 
-    // Initiate your search using the above paramaters
-    Twitter.get('search/tweets', params, function(err, data, response) {
-        // If there is no error, proceed
-        if(!err){
-            // Loop through the returned tweets
-            for(var i = 0; i < data.statuses.length; i++){
-                // Get the screen_name from the returned data
-                var screen_name = data.statuses[i].user.screen_name;
-                  // THE FOLLOWING MAGIC GOES HERE
-                Twitter.post('friendships/create', {screen_name}, function(err, response){
-                    if(err){
-                      console.log(err);
-                    } else {
-                      console.log(screen_name, ': **FOLLOWED**');
-                    }
-                });
-            }
+    // find the tweet
+    Twitter.get('search/tweets', params, function(err, data){
+        // find tweets
+        var tweet = data.statuses;
+        console.log(tweet);
+        var randomTweet = random_tweet(tweet);   // pick a random tweet
+        console.log(randomTweet);
+        var screen_name = randomTweet.user.screen_name;
+        console.log(screen_name);
+        // if random tweet exists
+        if(typeof randomTweet != 'undefined'){
+            // Tell TWITTER to 'follow'
+            Twitter.post('friendships/create', {screen_name}, function(err, response){
+                // if there was an error while 'follow' the user and print screen name
+                if(err){
+                  console.log('CANNOT FOLLOW... Error');
+                }
+                else {
+                  console.log(screen_name, ': **FOLLOWED**');
+                }
+            });
         } else {
-            console.log(err);
-        }
+            console.log('There was an error getting the random tweet');
+        };
     });
-}
+
+    // // Initiate your search using the above paramaters
+    // Twitter.get('search/tweets', params, function(err, data, response) {
+    //     // If there is no error, proceed
+    //     if(!err){
+    //         // Loop through the returned tweets
+    //         for(var i = 0; i < data.statuses.length; i++){
+    //             // Get the screen_name from the returned data
+    //             var screen_name = data.statuses[i].user.screen_name;
+    //               // THE FOLLOWING MAGIC GOES HERE
+    //             Twitter.post('friendships/create', {screen_name}, function(err, response){
+    //                 if(err){
+    //                   console.log(err);
+    //                 } else {
+    //                   console.log(screen_name, ': **FOLLOWED**');
+    //                 }
+    //             });
+    //         };
+    //     } else {
+    //         console.log(err);
+    //     };
+    // });
+};
 
 // grab & favorite as soon as program is running...
 follow_tweeter();
