@@ -45,7 +45,6 @@ setInterval(retweet, 3600000);
 
 
 // Favorite Bot ------------------------------------
-
 // find a random tweet and 'favorite' it
 var favoriteTweet = function(){
 	var params = {
@@ -59,7 +58,7 @@ var favoriteTweet = function(){
 
     // find tweets
     var tweet = data.statuses;
-    var randomTweet = ranDom(tweet);   // pick a random tweet
+    var randomTweet = random_tweet(tweet);   // pick a random tweet
 
     // if random tweet exists
     if(typeof randomTweet != 'undefined'){
@@ -84,7 +83,7 @@ setInterval(favoriteTweet, 3600000);
 
 
 // function to generate a random tweet 
-function ranDom(arr) {
+function random_tweet(arr) {
   var index = Math.floor(Math.random()*arr.length);
   return arr[index];
 };
