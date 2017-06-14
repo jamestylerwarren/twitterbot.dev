@@ -20,7 +20,7 @@ var retweet = function(){
             Twitter.post('statuses/retweet/:id', {id: retweetId}, function(err, response) {
                 if (err) {
                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                    console.log(err);
+                    console.log(err.message);
                 } else {
                     console.log('Retweeted');
                 };
@@ -54,7 +54,7 @@ var favoriteTweet = function(){
     	        // if there was an error while 'favorite'
     	        if(err){
     	          console.log('CANNOT BE FAVORITE... Error');
-                  console.log(err);
+                  console.log(err.message);
     	        } else {
     	          console.log('FAVORITED... Success!!!');
             	};
@@ -82,7 +82,7 @@ var follow_tweeter = function(){
                 // if there was an error while 'follow' the user and print screen name
                 if(err){
                   console.log('CANNOT FOLLOW... Error');
-                  console.log(err);
+                  console.log(err.message);
                 }; 
                 if (response) {
                   console.log(screen_name, ': **FOLLOWED**');
