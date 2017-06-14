@@ -11,7 +11,6 @@ var params = {
 
 //Retweet Bot ----------------------------------
 var retweet = function(){
-
     Twitter.get('search/tweets', params, function(err, data) {
       	// if there no errors
         if (!err) {
@@ -22,10 +21,8 @@ var retweet = function(){
                 if (err) {
                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
                     console.log(err);
-                }; 
-                if (response) {
+                } else {
                     console.log('Retweeted');
-                    console.log(response);
                 };
             });
         } else {
@@ -51,12 +48,13 @@ var favoriteTweet = function(){
         var randomTweet = random_tweet(tweet);   // pick a random tweet
 
         // if random tweet exists
-        if(typeof randomTweet != 'undefined'){
+        if (typeof randomTweet != 'undefined') {
           	// Tell TWITTER to 'favorite'
           	Twitter.post('favorites/create', {id: randomTweet.id_str}, function(err, response){
     	        // if there was an error while 'favorite'
     	        if(err){
     	          console.log('CANNOT BE FAVORITE... Error');
+                  console.log(err);
     	        } else {
     	          console.log('FAVORITED... Success!!!');
             	};
@@ -64,7 +62,6 @@ var favoriteTweet = function(){
         };
 	});
 }
-
 // grab & favorite as soon as program is running...
 favoriteTweet();
 // favorite a tweet in every 60 minutes
@@ -79,12 +76,13 @@ var follow_tweeter = function(){
         var randomTweet = random_tweet(tweet);   // pick a random tweet
         var screen_name = randomTweet.user.screen_name; //get screen name of random tweeter
         // if random tweet exists
-        if(typeof randomTweet != 'undefined'){
+        if (typeof randomTweet != 'undefined') {
             // Tell TWITTER to 'follow'
             Twitter.post('friendships/create', {screen_name}, function(err, response){
                 // if there was an error while 'follow' the user and print screen name
                 if(err){
                   console.log('CANNOT FOLLOW... Error');
+                  console.log(err);
                 }; 
                 if (response) {
                   console.log(screen_name, ': **FOLLOWED**');
