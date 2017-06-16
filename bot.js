@@ -47,6 +47,9 @@ var favoriteTweet = function(){
         var tweet = data.statuses;
         var randomTweet = random_tweet(tweet);   // pick a random tweet
 
+        //get a list of my followers
+        //if random tweet author is in my ist, recursively call function again
+
         // if random tweet exists
         if (typeof randomTweet != 'undefined') {
           	// Tell TWITTER to 'favorite'
