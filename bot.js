@@ -4,8 +4,8 @@ var config = require('./config.js');
 var Twitter = new twit(config);
 
 var params = {
-    q: '#popquote OR #greggpopovich OR #PopQuotes OR #PopQuotes OR #GreggPopovich OR #inpopwetrust OR #InPopWeTrust OR #WisdomOfCoachPop OR #PopForPrez OR #PresidentPop OR #CoachPoppa OR #ILikeItWhenYouCallMeCoachPoppa OR #CoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #PopForever OR #PopForEver OR #Popovichkerr2020 OR #PopovichKerr2020', 
-    result_type: 'recent',
+    q: '#greggpopovich OR #PopQuotes OR #GreggPopovich OR #InPopWeTrust OR #PopForPrez OR #PresidentPop OR #ILikeItWhenYouCallMeCoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #PopForever OR #Popovichkerr2020 OR #PopovichKerr2020 OR #Pop4Ever', 
+    result_type: 'mixed',
     lang: 'en',
 };
 
