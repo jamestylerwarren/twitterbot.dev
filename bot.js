@@ -107,14 +107,15 @@ setInterval(follow_tweeter, 3600000);
 var findFriends = function() {
     username = 'coachpopquotes';
     var friendsList = Twitter.get('friends/list', {screen_name: username});
-    var friends = [];
+    console.log(friendsList);
+    //var friends = [];
     
-    var count = friendsList.length;
-    for (var i = 0; i < count; i++) {
-        friends.push(i.screen_name);
-    };
-    console.log(friends);
-    return friends;
+    // var count = friendsList.length;
+    // for (var i = 0; i < count; i++) {
+    //     friends.push(i.screen_name);
+    // };
+    // console.log(friends);
+    // return friends;
 };
 findFriends();
 
