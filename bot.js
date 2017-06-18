@@ -105,15 +105,15 @@ setInterval(follow_tweeter, 3600000);
 
 var findfollowingList = function() {
     username = 'coachpopquotes';
-    console.log('in findFollwingList function now');
-    var list = Twitter.get('folowers/list', {screen_name: username}, function(err, response) {
+    console.log('in findFollowingList function now');
+    var users = Twitter.get('friends/list', {screen_name: username}, function(err, response) {
         if (err) {
             console.log(err);
         } else {
             console.log(response);
         };
     });
-    //return list;
+    //return users;
 };
 findfollowingList();
 
