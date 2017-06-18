@@ -106,16 +106,21 @@ setInterval(follow_tweeter, 3600000);
 //get a list of our friend's screenames
 var findFriends = function() {
     username = 'coachpopquotes';
-    var friendsList = Twitter.get('friends/list', {screen_name: username});
-    console.log(friendsList);
-    //var friends = [];
-    
-    // var count = friendsList.length;
-    // for (var i = 0; i < count; i++) {
-    //     friends.push(i.screen_name);
-    // };
-    // console.log(friends);
-    // return friends;
+    var friends = [];
+    Twitter.get('friends/list', {screen_name: username} function(err, response){
+        if (!err) {
+            console.log(response.users);
+            var count = response.users.length;
+            console.log(count);
+            // for (var i = 0; i < count; i++) {
+            //     console.log(response.users.i.screen_name);
+            //     friends.push(response.i.screen_name);
+            // };
+            // console.log(friends);
+        } else {
+            console.log(err);
+        };
+    });
 };
 findFriends();
 
