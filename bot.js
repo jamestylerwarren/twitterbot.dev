@@ -103,17 +103,17 @@ follow_tweeter();
 setInterval(follow_tweeter, 3600000);
 
 
-function findFollwingList() {
+var findfollowingList = function() {
     username = 'coachpopquotes';
     console.log('in findFollwingList function now');
-    var followingList = Twitter.get('folowers/list', {screen_name: username}, function(err, response) {
+    var list = Twitter.get('folowers/list', {screen_name: username}, function(err, response) {
         if (err) {
             console.log(err);
         } else {
             console.log(response);
         };
     });
-    return followingList;
+    //return list;
 };
 findfollowingList();
 
