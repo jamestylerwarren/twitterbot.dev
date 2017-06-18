@@ -114,8 +114,8 @@ function findFollwingList() {
         };
     });
     return followingList;
-}
-followingList();
+};
+findfollowingList();
 
 
 // function to generate a random tweet 
