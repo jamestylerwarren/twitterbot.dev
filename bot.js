@@ -4,7 +4,7 @@ var config = require('./config.js');
 var Twitter = new twit(config);
 
 var params = {
-    q: '#greggpopovich OR #PopQuotes OR #GreggPopovich OR #InPopWeTrust OR #PopForPrez OR #PresidentPop OR #ILikeItWhenYouCallMeCoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #PopForever OR #Popovichkerr2020 OR #PopovichKerr2020 OR #Pop4Ever OR #sanantoniospurs OR #saspurs OR #GSG', 
+    q: '#greggpopovich OR #PopQuotes OR #GreggPopovich OR #InPopWeTrust OR #PopForPrez OR #PresidentPop OR #ILikeItWhenYouCallMeCoachPoppa OR #PopForPresident OR #PopBeingPop OR #Pop2020 OR #PopGonnaPop OR #PopForever OR #Popovichkerr2020 OR #PopovichKerr2020 OR #Pop4Ever OR #sanantoniospurs OR #saspurs OR', 
     result_type: 'mixed',
     lang: 'en',
 };
@@ -47,9 +47,6 @@ var favoriteTweet = function(){
         var tweet = data.statuses;
         var randomTweet = random_tweet(tweet);   // pick a random tweet
 
-        //get a list of my followers
-        //if random tweet author is in my ist, recursively call function again
-
         // if random tweet exists
         if (typeof randomTweet != 'undefined') {
           	// Tell TWITTER to 'favorite'
@@ -73,6 +70,11 @@ setInterval(favoriteTweet, 3600000);
 
 //Follow bot --------------------------------------------
 var follow_tweeter = function(){
+    //get a list of my followers
+    //if random tweet author is in my ist, recursively call function again
+
+
+
     // find a tweet
     Twitter.get('search/tweets', params, function(err, data){
         var tweet = data.statuses;
@@ -81,13 +83,12 @@ var follow_tweeter = function(){
         // if random tweet exists
         if (typeof randomTweet != 'undefined') {
             // Tell TWITTER to 'follow'
-            Twitter.post('friendships/create', {screen_name}, function(err, response){
+            Twitter.post('friendships/create', {screen_name: screen_name}, function(err, response){
                 // if there was an error while 'follow' the user and print screen name
-                if(err){
-                  console.log('CANNOT FOLLOW... Error');
+                if(err) {
+                  console.log('CANNOT FOLLOW ' + screen_name);
                   console.log(err.message);
-                }; 
-                if (response) {
+                } else {
                   console.log(screen_name, ': **FOLLOWED**');
                 };
             });
@@ -96,10 +97,25 @@ var follow_tweeter = function(){
         };
     });
 };
-// grab & favorite as soon as program is running...
+// grab & follow as soon as program is running...
 follow_tweeter();
-// favorite a tweet in every 60 minutes
+// run every 60 minutes
 setInterval(follow_tweeter, 3600000);
+
+
+function findFollwingList() {
+    username = 'coachpopquotes';
+    console.log('in findFollwingList function now');
+    var followingList = Twitter.get('folowers/list', {screen_name: username}, function(err, response) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(response);
+        };
+    });
+    return followingList;
+}
+followingList();
 
 
 // function to generate a random tweet 
