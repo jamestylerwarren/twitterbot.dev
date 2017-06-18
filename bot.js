@@ -103,19 +103,17 @@ follow_tweeter();
 setInterval(follow_tweeter, 3600000);
 
 
-var findfollowingList = function() {
+//get a list of our friend's screenames
+var findFriends = function() {
     username = 'coachpopquotes';
-    console.log('in findFollowingList function now');
-    var users = Twitter.get('friends/list', {screen_name: username}, function(err, response) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(response);
-        };
-    });
-    //return users;
+    var friends_list = Twitter.get('friends/list', {screen_name: username});
+    var friends = [];
+    friends_list.forEach(function(e){
+        friends.push(e.screen_name);
+    })
+    console.log(friends);
 };
-findfollowingList();
+findFriends();
 
 
 // function to generate a random tweet 
