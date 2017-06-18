@@ -106,12 +106,15 @@ setInterval(follow_tweeter, 3600000);
 //get a list of our friend's screenames
 var findFriends = function() {
     username = 'coachpopquotes';
-    var friends_list = Twitter.get('friends/list', {screen_name: username});
+    var friendsList = Twitter.get('friends/list', {screen_name: username});
     var friends = [];
-    friends_list.forEach(function(e){
-        friends.push(e.screen_name);
-    })
+    
+    var count = friendsList.length;
+    for (var i = 0; i < count; i++) {
+        friends.push(i.screen_name);
+    };
     console.log(friends);
+    return friends;
 };
 findFriends();
 
