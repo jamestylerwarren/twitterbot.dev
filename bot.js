@@ -52,7 +52,7 @@ var favoriteTweet = function(){
           	// Tell TWITTER to 'favorite'
           	Twitter.post('favorites/create', {id: randomTweet.id_str}, function(err, response){
     	        // if there was an error while 'favorite'
-    	        if(err){
+    	        if (err){
     	          console.log('CANNOT BE FAVORITE... Error');
                   console.log(err.message);
     	        } else {
@@ -68,12 +68,11 @@ favoriteTweet();
 setInterval(favoriteTweet, 3600000);
 
 
+
 //Follow bot --------------------------------------------
 var follow_tweeter = function(){
-    //get a list of my followers
+    //get a list of people I am following
     //if random tweet author is in my ist, recursively call function again
-
-
 
     // find a tweet
     Twitter.get('search/tweets', params, function(err, data){
@@ -82,10 +81,9 @@ var follow_tweeter = function(){
         var screen_name = randomTweet.user.screen_name; //get screen name of random tweeter
         // if random tweet exists
         if (typeof randomTweet != 'undefined') {
-            // Tell TWITTER to 'follow'
             Twitter.post('friendships/create', {screen_name: screen_name}, function(err, response){
                 // if there was an error while 'follow' the user and print screen name
-                if(err) {
+                if (err) {
                   console.log('CANNOT FOLLOW ' + screen_name);
                   console.log(err.message);
                 } else {
@@ -104,24 +102,22 @@ setInterval(follow_tweeter, 3600000);
 
 
 //get a list of our friend's screenames
-var findFriends = function() {
+var findFriends = function(){
     var friends = [];
-    username = 'coachpopquotes';
+    var username = 'coachpopquotes';
     //need to look at cursors to navigate collection of friends
     Twitter.get('friends/list', {screen_name: username}, function(err, response){
         if (!err) {
             var count = response.users.length;
             for (var i = 0; i < count; i++) {
                 friends.push(response.users[i].screen_name);
-            }
+            };
         } else {
             console.log(err);
         }
+        return friends;
     });
-    console.log(friends);
-    return friends;
 };
-findFriends();
 
 
 // function to generate a random tweet 
