@@ -113,10 +113,10 @@ var findFriends = function() {
             var count = response.users.length;
             for (var i = 0; i < count; i++) {
                 friends.push(response.users[i].screen_name);
-            };
+            }
         } else {
             console.log(err);
-        };
+        }
     });
     return friends;
 };
