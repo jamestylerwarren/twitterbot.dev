@@ -105,8 +105,8 @@ setInterval(follow_tweeter, 3600000);
 
 //get a list of our friend's screenames
 var findFriends = function() {
-    username = 'coachpopquotes';
     var friends = [];
+    username = 'coachpopquotes';
     //need to look at cursors to navigate collection of friends
     Twitter.get('friends/list', {screen_name: username}, function(err, response){
         if (!err) {
@@ -118,6 +118,7 @@ var findFriends = function() {
             console.log(err);
         }
     });
+    console.log(friends);
     return friends;
 };
 findFriends();
