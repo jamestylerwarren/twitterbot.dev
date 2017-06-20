@@ -69,6 +69,25 @@ setInterval(favoriteTweet, 3600000);
 
 
 
+//get a list of our friend's screenames
+var findFriends = function(){
+    var friends = [];
+    var username = 'coachpopquotes';
+    //need to look at cursors to navigate collection of friends
+    Twitter.get('friends/list', {screen_name: username}, function(err, response){
+        if (!err) {
+            var count = response.users.length;
+            for (var i = 0; i < count; i++) {
+                friends.push(response.users[i].screen_name);
+            };
+        } else {
+            console.log(err);
+        }
+        return friends;
+    });
+};
+
+
 //Follow bot --------------------------------------------
 var follow_tweeter = function(){
     //get a list of people I am following
@@ -99,25 +118,6 @@ var follow_tweeter = function(){
 follow_tweeter();
 // run every 60 minutes
 setInterval(follow_tweeter, 3600000);
-
-
-//get a list of our friend's screenames
-var findFriends = function(){
-    var friends = [];
-    var username = 'coachpopquotes';
-    //need to look at cursors to navigate collection of friends
-    Twitter.get('friends/list', {screen_name: username}, function(err, response){
-        if (!err) {
-            var count = response.users.length;
-            for (var i = 0; i < count; i++) {
-                friends.push(response.users[i].screen_name);
-            };
-        } else {
-            console.log(err);
-        }
-        return friends;
-    });
-};
 
 
 // function to generate a random tweet 
