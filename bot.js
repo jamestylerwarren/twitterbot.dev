@@ -89,7 +89,8 @@ var findFriends = function(){
 
 //Follow bot --------------------------------------------
 var follow_tweeter = function(){
-    console.log(findFriends);
+    myFriends = findFriends();
+    console.log(myFriends);
 
     // find a tweet
     Twitter.get('search/tweets', params, function(err, data){
