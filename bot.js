@@ -34,7 +34,6 @@ var retweet = function(){
 retweet();
 // retweet in every 60 min
 setInterval(retweet, 3600000);
-
 //===================================================
 
 
@@ -69,7 +68,7 @@ setInterval(favoriteTweet, 3600000);
 
 
 
-//get a list of our friend's screenames
+//get a list of our friend's screen_names
 var findFriends = function(){
     var friends = [];
     var username = 'coachpopquotes';
@@ -90,8 +89,7 @@ var findFriends = function(){
 
 //Follow bot --------------------------------------------
 var follow_tweeter = function(){
-    //get a list of people I am following
-    //if random tweet author is in my ist, recursively call function again
+    console.log(findFriends);
 
     // find a tweet
     Twitter.get('search/tweets', params, function(err, data){
